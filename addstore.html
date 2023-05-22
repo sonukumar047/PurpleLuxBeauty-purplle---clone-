@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        /* adding CSS to navbar */
+        nav a:hover {
+            color: gray;
+            font-weight: 600px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            padding: 11px;
+            border: 1px solid rgb(239, 233, 233);
+            border-left: none;
+            border-right: none;
+            cursor: pointer;
+            margin-top: 11px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            font-size: 18px;
+        }
+
+        .navbar img {
+            width: 8%;
+            margin-left: 30%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            margin-top: 11px;
+        }
+
+        /* adding CSS to create store button */
+        #createstore {
+            background-color: dodgerblue;
+            color: white;
+            padding: 11px;
+            border-radius: 2px;
+            border: navajowhite;
+            font-size: larger;
+        }
+
+        form {
+            margin-top: 40px;
+            margin-left: 20px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            color: palevioletred;
+            padding: 10px;
+        }
+
+        #submit {
+            padding: 11px;
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar starts fron here -->
+    <div class="navbar">
+        <img id="dash" src="./img/purplle_v2.png" alt="">
+        <button id="createstore">Create Store</button>
+    </div>
+    <nav>
+        <a href="./admin-products.html">Products</a>
+        <a href="./admin-orders.html">orders</a>
+    </nav>
+    <!-- Navbar end fron here -->
+
+    <form action="">
+        <label for="">STORE NAME</label>
+        <input type="text" name="storename" id="storename">
+        <label for="">ADDRESS</label>
+        <input type="text" name="address" id="address">
+        <label for="">CONATCT NUMBER</label>
+        <input type="text" name="contact" id="contact">
+        <input type="submit" id="submit">
+    </form>
+</body>
+
+</html>
+
+<script>
+   let from = document.querySelector("form")
+    from.addEventListener("submit",Register)
+    apiUrl="http://127.0.0.1:9090"
+ async function Register(e) {
+    e.preventDefault()
+            const storename = document.getElementById("storename").value;
+            const address = document.getElementById("address").value;
+            const contact = document.getElementById("contact").value;
+            const userId =JSON.parse(localStorage.getItem("userId"));
+
+        const user = {
+            storename,
+            address,
+            contact,
+            userId,
+
+
+        };
+
+        const response = await fetch("http://127.0.0.1:9090/store", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        });
+
+        let data = await response.json()
+        console.log(data);
+    }
+
+
+
+    // redirect to addstore.html
+    let createbtn = document.getElementById("createstore")
+    createbtn.addEventListener("click", () => {
+        window.location = "./addstore.html"
+    })
+
+    // redirect to adnin-dashboard.html
+    let dash = document.getElementById("dash")
+    dash.addEventListener("click", () => {
+        window.location = "./admin-dashboard.html"
+    })
+
+    
+
+</script>

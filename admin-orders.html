@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+    nav a:hover {
+            color: gray;
+            font-weight: 600px;
+        }
+    nav {
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        padding: 11px;
+        border: 1px solid rgb(239, 233, 233);
+        border-left: none;
+        border-right: none;
+        cursor: pointer;
+        margin-top: 11px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        font-size: 18px;
+    }
+    .navbar img {
+            width: 8%;
+            margin-left: 30%;
+        }
+    .navbar {
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        margin-top: 11px;
+    }
+
+    #createstore{
+        background-color: dodgerblue;
+        color: white;
+        padding: 11px;
+        border-radius: 2px;
+        border: navajowhite;
+        font-size: larger;
+    }
+</style>
+<body>
+    <div class="navbar">
+        <img id="dash" src="./img/purplle_v2.png" alt="">
+        <button id="createstore">Create Store</button>
+    </div>
+    <nav>
+        <a href="./admin-products.html">Products</a>
+        <a href="./admin-orders.html">orders</a>
+    </nav>
+</body>
+<SCript>
+    let storeId= JSON.parse(localStorage.getItem("storeId"))
+    let createbtn =document.getElementById("createstore")
+    createbtn.addEventListener("click",()=>{
+        window.location= "./addstore.html"
+    })
+    let dash =document.getElementById("dash")
+    dash.addEventListener("click",()=>{
+        window.location= "./admin-dashboard.html"
+    })
+    async function getOrders(){
+        let res = await fetch(`http://127.0.0.1:9090/adminorders?storeId=${storeId}`)
+        let data = await res.json()
+    }
+</SCript>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            min-height: 100vh;
+            background: linear-gradient(90deg, white 60%, white 40.1%);
+        }
+
+        .container form {
+            padding: 20px;
+            width: 700px;
+            background: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+        }
+
+        .container form .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .container form .row .col {
+            flex: 1 1 250px;
+            border: 1px solid #E40980;
+            padding: 10px;
+        }
+
+        .container form .row .col .title {
+            font-size: 20px;
+            color: #333;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .container form .row .col .inputBox {
+            margin: 15px 0;
+        }
+
+        .container form .row .col .inputBox span {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .container form .row .col .inputBox input {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            font-size: 15px;
+            text-transform: none;
+        }
+
+        .container form .row .col .inputBox input:focus {
+            border: 1px solid #000;
+        }
+
+        .container form .row .col .flex {
+            display: flex;
+            gap: 15px;
+        }
+
+        .container form .row .col .flex .inputBox {
+            margin-top: 5px;
+        }
+
+        .container form .row .col .inputBox img {
+            height: 34px;
+            margin-top: 5px;
+            filter: drop-shadow(0 0 1px #000);
+        }
+
+        .container form .submit-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 17px;
+            background: #E40980;
+            color: #fff;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .container form .submit-btn:hover {
+            background: #874167;
+        }
+
+        .div7 {
+            width: 70%;
+            margin: auto;
+        }
+
+        .div7 div {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .div7 div h4 {
+            color: rgb(124, 120, 120);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <form action="">
+
+            <div class="row">
+
+                <div class="col">
+
+                    <h3 class="title">billing address</h3>
+
+                    <div class="inputBox">
+                        <span>full name :</span>
+                        <input id="name" type="text" placeholder="Sonu Kumar">
+                    </div>
+                    <div class="inputBox">
+                        <span>email :</span>
+                        <input id="email" type="email" placeholder="example@example.com">
+                    </div>
+                    <div class="inputBox">
+                        <span>address :</span>
+                        <input id="address" type="text" placeholder="room - street - locality">
+                    </div>
+                    <div class="inputBox">
+                        <span>city :</span>
+                        <input id="city" type="text" placeholder="Kolkata">
+                    </div>
+
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>state :</span>
+                            <input id= "state"type="text" placeholder="West Bengal">
+                        </div>
+                        <div class="inputBox">
+                            <span>zip code :</span>
+                            <input id="zipcode" type="text" placeholder="123 456">
+                        </div>
+                    </div>
+
+                </div>
+                
+
+                <div class="col">
+
+                    <h3 class="title">payment</h3>
+
+                    <div class="inputBox">
+                        <span>cards accepted :</span>
+                        <img src="./img/card_img.png" alt="">
+                    </div>
+                    <div class="inputBox">
+                        <span>name on card :</span>
+                        <input id="cardname" type="text" placeholder="Mr. Sonu Kumar">
+                    </div>
+                    <div class="inputBox">
+                        <span>credit card number :</span>
+                        <input id="cardnumber" type="number" placeholder="1111-2222-3333-4444">
+                    </div>
+                    <div class="inputBox">
+                        <span>exp month :</span>
+                        <input id="expmonth" type="text" placeholder="january">
+                    </div>
+
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>exp year :</span>
+                            <input id="expyear" type="number" placeholder="2027">
+                        </div>
+                        <div class="inputBox">
+                            <span>CVV :</span>
+                            <input id="cvv" type="text" placeholder="123">
+                        </div>
+                    </div>
+
+                </div>
+                <input type="submit" value="proceed to checkout" class="submit-btn" id="submit">
+
+            </form>
+
+                <div class="div7">
+                    <h3>Price Details</h3>
+                    <br>
+                   <div class="bill1">
+                    <h4>Total MRP:</h4>
+                    <div class="totalmrp" style="color:rgb(244, 65, 154);width: 100px;text-align: right;margin-bottom: 15px;">₹207</div>
+                   </div>
+                   <div class="bill2">
+                    <h4>Saving :</h4>
+                    <div class="savingonmrp" style="color: rgb(244, 65, 154);text-align: right;width: 100px;margin-bottom: 15px;">10%</div>
+                   </div>
+                   <div class="bill3">
+                    <h4>SubTotal:</h4>
+                    <div class="subtotal"  style="color:rgb(244, 65, 154);width: 100px;text-align: right;margin-bottom: 15px;">₹180</div>
+                   </div>
+                   <div class="bill4">
+                    <h4>Shipping Charges:</h4>
+                    <div class="shippingCharges"  style="color:rgb(244, 65, 154);width: 100px;text-align: right;margin-bottom: 15px;">₹55</div>
+                   </div>
+                   <div class="bill5"><h4>Coupon Discount:</h4>
+                   <h5 style="color:rgb(244, 65, 154);width: 100px;text-align: right;margin-bottom: 15px;"> Apply Coupon</h5>
+                </div>
+                <hr style="width: 100%; margin: auto;margin-top: 10px;margin-bottom: 10px;">
+                <div class="bill6">
+                    <h3>Order Total:</h3>
+                    <div class="ordertotal" style="color:rgb(244, 65, 154);width: 100px;text-align: right;margin-bottom: 15px;">₹235</div>
+                </div>
+                <div class="bill7">
+                    <h4>You Save</h4>
+                    <div class="yousave" class="ordertotal" style="color:rgb(244, 65, 154);width: 100px;text-align: right;margin-bottom: 5px;">₹67</div>
+                    
+                </div>
+
+            </div>
+
+           
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    let submit = document.querySelector("form");
+    let userId=JSON.parse(localStorage.getItem("userId"))
+    submit.addEventListener("click",(e)=>{
+        e.preventDefault();
+        let userName =document.getElementById("name").value
+        let email = document.getElementById("email").value
+        let address =document.getElementById("address").value +", "+
+        document.getElementById("city").value+", "+document.getElementById("state").value+" - "+document.getElementById("zipcode")
+        let nameOnCard = document.getElementById("cardname").value
+        let cardNumber = document.getElementById("cardnumber").value
+        let expiry =document.getElementById("expmonth")+"/"+document.getElementById("expyear").value
+        let cvv = document.getElementById("cvv").value
+        let status ="Processed"
+        let details ={
+            userId,
+            userName,
+            email,
+            address,
+            nameOnCard,
+            cardNumber,
+            expiry,
+            cvv,
+            status
+        }
+        placeOrder(details)
+        
+
+        window.location="./pay-order.html"
+    })
+    let products =[]
+    async function getCart(){
+        let res = await fetch(`http://127.0.0.1:9090/cart?userId=${userId}`)
+        let data = await res.json()
+         products = data[0].products
+    }
+    getCart()
+    async function placeOrder(details){
+        let req ={
+            userId,
+            order:{
+                datails,
+                products
+        } }
+        let response = await fetch("http://127.0.0.1:9090/orders",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            
+            body:JSON.stringify({userId,order:req})
+        })
+        let result =await response.json()
+        console.log(result);
+        let indexes =products.reduce((acc,item)=>{
+            if(acc[`${item.storeId}`]==undefined){
+                acc[`${item.storeId}`]=[item]
+            }else{
+                acc[`${item.storeId}`].push(item)
+            }
+            return acc
+        },{})
+       
+        for(x in indexes){
+           let res = await fetch("http://127.0.0.1:9090/admin/orders",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({storeId:x,order:{details,products:indexes[x]}})
+           })
+           let out =await res.json()
+           console.log(out);
+        }
+
+    }
+
+</script>

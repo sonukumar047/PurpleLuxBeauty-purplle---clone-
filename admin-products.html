@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        /* adding CSS to navbar */
+    nav a:hover {
+            color: gray;
+            font-weight: 600px;
+        }
+    nav {
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        padding: 11px;
+        border: 1px solid rgb(239, 233, 233);
+        border-left: none;
+        border-right: none;
+        cursor: pointer;
+        margin-top: 11px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        font-size: 18px;
+    }
+    .navbar img {
+            width: 8%;
+            margin-left: 30%;
+        }
+    .navbar {
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        margin-top: 11px;
+    }
+
+    /* adding CSS to create store button */
+    #createstore{
+        background-color: dodgerblue;
+        color: white;
+        padding: 11px;
+        border-radius: 2px;
+        border: navajowhite;
+        font-size: larger;
+    }
+
+    .products_div {
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            padding: 2rem;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .products_div>div {
+            background-color: white;
+            margin: 1rem;
+            text-align: left;
+            padding: 0.5rem;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border-radius: 8px;
+        }
+
+        .products_div>div>img{
+            object-fit: cover;
+        }
+
+    .hoveryimage{
+position: relative;
+
+}
+.hoveryimage>img{
+    width: 100%;
+    
+}
+.hoveryimage:hover > button{
+    opacity:1;
+}
+
+.cartandimage{
+    opacity: 0;
+    position: absolute;
+    top:87%;
+    bottom: 0%;
+        left: 0%;
+        background-color: rgb(35, 33, 33);
+        color: white;
+        right: 0%;
+        border-radius: 5px;
+}
+
+
+    /* adding CSS to Button to add the products */
+    #addproduct{
+        margin-top: 30px;
+        background-color: dodgerblue;
+        color: white;
+        padding: 11px;
+        border-radius: 2px;
+        border: navajowhite;
+        font-size: larger;
+    }
+</style>
+<body>
+    <!-- Navbar starts fron here -->
+    <div class="navbar">
+        <img id="dash" src="./img/purplle_v2.png" alt="">
+        <button id="createstore">Create Store</button>
+    </div>
+    <nav>
+        <a href="./admin-products.html">Products</a>
+        <a href="./admin-orders.html">orders</a>
+    </nav>
+    <button id="addproduct">Add Product</button>
+    <div class="products_div"></div>
+    
+</body>
+<script>
+    let userId = JSON.parse(localStorage.getItem("userId"))
+    let storeId =JSON.parse(localStorage.getItem("storeId"))
+    let addbtn = document.getElementById("addproduct")
+    addbtn.addEventListener("click",()=>{
+        window.location ="./add-product.html"
+    })
+    
+    let createbtn =document.getElementById("createstore")
+    createbtn.addEventListener("click",()=>{
+        window.location= "./addstore.html"
+    })
+    let dash =document.getElementById("dash")
+    dash.addEventListener("click",()=>{
+        window.location= "./admin-dashboard.html"
+    })
+    if(storeId!=null){
+        getproducts()
+    }else{
+        alert("Please create a store to add products")
+    }
+    async function getproducts(){
+        let res  = await fetch(`http://127.0.0.1:9090/products?storeId=${storeId}`)
+        let data = await res.json()
+        console.log(data);
+        displayData(data)
+    }
+    function displayData(data){
+        const container = document.querySelector(".products_div");
+  container.innerHTML = null;
+
+  data.forEach((el) => {
+    if (el.elite==false) {
+        return;
+    }
+    const div = document.createElement("div");
+    const img = document.createElement("img");
+    const productName = document.createElement("h3");
+    const newprice=document.createElement("p")
+    newprice.classList.add("newprice")
+    const price = document.createElement("p");
+    // const category = document.createElement("p");
+   const addToCart = document.createElement("button");
+   const wrap =document.createElement("div");
+ wrap.classList.add("hoveryimage");
+   addToCart.classList.add("cartandimage");
+
+
+    img.src = el.image;
+    productName.innerText = el.productName;
+    newprice.innerText=` ₹${((el.price)-(el.offer))}`
+    price.innerText =  el.price 
+    // category.innerText = `Category: ${el.category}`;
+    addToCart.innerText = "Remove";
+    addToCart.dataset[`id`] =el.id
+
+//addToCart.addEventListener("click",gotocart)
+
+wrap.append(img,addToCart)
+
+    div.append(
+    //   img,
+    wrap,
+      productName,
+      newprice,
+      price,
+    // category,
+    // addToCart
+    );
+    container.append(div);
+  });
+    }
+
+</script>
+</html>

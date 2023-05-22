@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index.css">
+    <script src="https://kit.fontawesome.com/5089e6484a.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        width:90%;
+    
+        margin:auto;
+        margin-bottom: 90px;
+    }
+    .main img{
+        width: 100%;
+    }
+    .main1{
+        width:90%;
+
+        margin:auto;
+        margin-bottom: 90px;
+        
+    }
+    .main1 img{
+        width: 100%;
+    }
+    .slideshow-container{
+        width: 100%;
+        text-align: center;
+      
+       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; ;
+       margin: auto;
+       max-width: 1000px;
+  position: relative;
+  margin: auto;
+       
+    }
+    .mySlides{
+       
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+    .mySlides img{
+        width: 22%;
+    }
+    
+    *{box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+
+/* img {vertical-align: middle;} */
+
+/* Slideshow container */
+
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev{
+    left: 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+.icon{
+  
+  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+   
+
+
+
+
+
+
+
+.featured{
+    width: 90%;
+    margin: auto;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    border-radius: 35px;
+    margin-top: 70px;
+}
+.feature img{
+    width: 100%;
+}
+.feature{
+   
+    width: 100%;
+    display: grid;
+   grid-template-columns:repeat(3,1fr);
+}
+.featured h1{
+    font-size: 60px;
+}
+.featured h2{
+    font-size: 40px;
+}
+.featured{
+    text-align: center;
+}
+.logo img {
+    width: 100px;
+    border-radius: 8px;
+}
+</style>
+<body>
+    <div class="navbar">
+        <div class="inp">
+            <input type="text" id="searchInput" placeholder="Enter search query">
+            <button onclick="search()">Search</button>
+            <ul id="searchResults">
+            </ul>
+        </div>
+        <div class="logo">
+            <a href="./index.html"><img src="./img/purplle_v2.png" alt=""></a> 
+         </div>
+         <div class="icon">
+            <i class="fa-regular fa-heart"></i>
+            
+            <div class="drop">
+                <i class="fa-sharp fa-regular fa-face-smile"></i>
+                <div class="dropcont">
+                <a href="signup.html" >USER REGISTER</a>
+                <a href="login.html">USER LOGIN</a>
+                <a href="elite.html">ELITE MEMBERSHIP</a>
+                <a href="">YOUR BEAUTY PROFILE</a>
+                <a href="adminlogin.html">ADMIN LOGIN</a>
+                <a href="admin-register.html">ADMIN REGISTER</a>
+
+
+                <a href="./wishlist.html">❤️YOUR WISHLIST</a>
+               </div>
+               </div>
+            <a href="./cart.html"> <i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </div>
+    <nav>
+        <div class="dropdown">
+            <p class="dropbtn">SHOP CATEGORIES
+            <p>
+            <div class="dropdown-content">
+                <div class="dropbtns">
+                    <a href="#">
+                        <h3>Makeup</h3>
+                    </a>
+                    <div class="dropdown-contents">
+                        <div class="dropdown-grid">
+                            <div>
+                                <h3 style="padding-top: 20px;">FACE MAKEUP</h3>
+                                <a href="" style="padding:2px">Primer</a>
+                                <a href="" style="padding:2px">Concealer</a>
+                                <a href="" style="padding:2px">BB & CC Creams</a>
+                                <a href="" style="padding:2px">Foundation</a>
+                                <a href="" style="padding:2px">Compact</a>
+                                <a href="" style="padding:2px">Loose Powder</a>
+                                <a href="" style="padding:2px">Blush</a>
+                                <a href="" style="padding:2px">Highlighters & iluuminators</a>
+                                <a href="" style="padding:2px">Brozer</a>
+                                <a href="" style="padding:2px">Contour</a>
+                                <a href="" style="padding:2px">Setting Sparays & Fixers</a>
+                                <a href="" style="padding:2px">Sindoor</a>
+                                <a href="" style="padding:2px">Makeup Remover</a>
+                            </div>
+
+
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">EYE MAKEUP</h3>
+                                <a href="" style="padding:2px">Eyeliner</a>
+                                <a href="" style="padding:2px">Under eye Concealers</a>
+                                <a href="" style="padding:2px">Eyeshadow</a>
+                                <a href="" style="padding:2px">kajal</a>
+                                <a href="" style="padding:2px">Mascara</a>
+                                <a href="" style="padding:2px">False Eyelashes</a>
+                                <a href="" style="padding:2px">Eyebrow Enhancer</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">LIP MAKEUP</h3>
+                                <a href="" style="padding:2px">Lipstick</a>
+                                <a href="" style="padding:2px">Liquid Lipstick</a>
+                                <a href="" style="padding:2px">Lip Crayon</a>
+                                <a href="" style="padding:2px">Lip Liner</a>
+                                <a href="" style="padding:2px">Lip Gloss</a>
+                                <a href="" style="padding:2px">Lip Stains & Tints</a>
+                                <a href="" style="padding:2px">Lip Balims & Tratments</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">LIP MAKEUP</h3>
+                                <h3>NAILS</h3>
+                                <a href="" style="padding:2px">Nail Polish</a>
+                                <a href="" style="padding:2px">Gel Nail Polish</a>
+                                <a href="" style="padding:2px">Matte Nail Polish</a>
+                                <a href="" style="padding:2px">Top And Base Coat</a>
+                                <a href="" style="padding:2px">Nail Polish Removers</a>
+                                <a href="" style="padding:2px">Manicure & Pedicure Kits</a>
+
+                            </div>
+
+
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">BRUSHES & TOOLS</h3>
+                                <a href="" style="padding:2px">Face Brushes</a>
+                                <a href="" style="padding:2px">Eye BRushes</a>
+                                <a href="" style="padding:2px">Lip Brushes</a>
+                                <a href="" style="padding:2px">Brush Sets</a>
+                                <a href="" style="padding:2px">Tweezers</a>
+                                <a href="" style="padding:2px">Eyelash Curlers</a>
+                                <a href="" style="padding:2px">Mirror</a>
+                                <a href="" style="padding:2px">Sharpener</a>
+                            </div>
+
+                            <div>
+
+                                <h3 style="padding-top: 20px;">BY SKIN TONE</h3>
+                                <a href="" style="padding:2px">Fair</a>
+                                <a href="" style="padding:2px">Dusky</a>
+                                <a href="" style="padding:2px">Ivory</a>
+                                <a href="" style="padding:2px">Wheatish</a>
+                                <a href="" style="padding:2px">Dark</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropbtns">
+                    <a href="#">
+                        <h3>Skin Care</h3>
+                    </a>
+                    <div class="dropdown-contents">
+                        <div class="dropdown-grid">
+
+                            <div>
+                                <h3 style="padding-top: 20px;">CLEANSERS</h3>
+                                <a href="" style="padding:2px">Face Wash</a>
+                                <a href="" style="padding:2px">Cleanser</a>
+                                <a href="" style="padding:2px">Srcubs & Extfolitors</a>
+                                <a href="" style="padding:2px">Makeup Remover</a>
+                                <a href="" style="padding:2px">CompFacial Wipes</a>
+                            </div>
+
+
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">TONER & FACE MISTS</h3>
+                                <a href="" style="padding:2px">Toner</a>
+                                <a href="" style="padding:2px">Face Mists</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">MOISTURIZERS</h3>
+                                <a href="" style="padding:2px">Face Moistuarizes & Dry Creams</a>
+                                <a href="" style="padding:2px">Night Creams</a>
+                                <a href="" style="padding:2px">Serums & Essence</a>
+                                <a href="" style="padding:2px">facial Oils</a>
+                                <a href="" style="padding:2px">BB & CC Creame</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">EYE CARE</h3>
+                                <a href="" style="padding:2px">Eye Masks & PAtches</a>
+                                <a href="" style="padding:2px">Eye Serum</a>
+                                <a href="" style="padding:2px">Eye Cream</a>
+                                <a href="" style="padding:2px">Eye makeup Remover</a>
+                            </div>
+
+
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">LIP CARE</h3>
+                                <a href="" style="padding:2px">Lip Balm</a>
+                                <a href="" style="padding:2px">Lip Sruub</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">BODY CARE</h3>
+                                <a href="" style="padding:2px">Body Lotions & Moisturizers</a>
+                                <a href="" style="padding:2px">Body creames & Body Butters</a>
+                                <a href="" style="padding:2px">Talc</a>
+                                <a href="" style="padding:2px">Body & Massage Oils</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropbtns">
+                    <a href="#">
+                        <h3>Hair Care</h3>
+                    </a>
+                    <div class="dropdown-contents">
+                        <div class="dropdown-grid">
+
+                            <div>
+                                <h3 style="padding-top: 20px;">SHAMPOO & CONDITIONERS</h3>
+                                <a href="" style="padding:2px">Shampoo</a>
+                                <a href="" style="padding:2px">Dry Shampoo</a>
+                                <a href="" style="padding:2px">Conditioner</a>
+                            </div>
+
+
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">NOURISHMENT</h3>
+                                <a href="" style="padding:2px">HAir </a>
+                                <a href="" style="padding:2px">HAir Serum</a>
+                                <a href="" style="padding:2px">Hair Spa & Mask</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">Hair STYLING & TOOLS</h3>
+                                <a href="" style="padding:2px">Hair color</a>
+                                <a href="" style="padding:2px">Hair Spray</a>
+                                <a href="" style="padding:2px">Hair Serum</a>
+                                <a href="" style="padding:2px">Hair Dryer</a>
+                                <a href="" style="padding:2px">hair Roller And Curles</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">HAIR ACCESSORIES</h3>
+                                <a href="" style="padding:2px">HAir Clips, Brands & More</a>
+                            </div>
+
+
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">BY CONCERN</h3>
+                                <a href="" style="padding:2px">Color Protection</a>
+                                <a href="" style="padding:2px">Damaged Hair</a>
+                                <a href="" style="padding:2px">Dandruff</a>
+                                <a href="" style="padding:2px">Dull & Dry</a>
+                                <a href="" style="padding:2px">GRey Hair</a>
+                                <a href="" style="padding:2px">Heat Protection</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">By HAIR TYPE</h3>
+                                <a href="" style="padding:2px">All Hair Types</a>
+                                <a href="" style="padding:2px">Curlv Wavy Hair</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropbtns">
+                    <a href="#">
+                        <h3>Appliances</h3>
+                    </a>
+                    <div class="dropdown-contents">
+                        <div class="dropdown-grid">
+
+                            <div>
+                                <h3 style="padding-top: 20px;">STYLING TOOLS</h3>
+                                <a href="" style="padding:2px">Hair Dryer</a>
+                                <a href="" style="padding:2px">Hair Curler</a>
+                                <a href="" style="padding:2px">Hair Straightener</a>
+                                <a href="" style="padding:2px">Hiar Styles</a>
+                                <a href="" style="padding:2px">Hair Crimpers</a>
+                            </div>
+
+
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">HAIR REMOVAL TOOLS</h3>
+                                <a href="" style="padding:2px">Epilators</a>
+                                <a href="" style="padding:2px">Trmmers & Clippers</a>
+                                <a href="" style="padding:2px">Male Groming</a>
+                                <a href="" style="padding:2px">Female Groming</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">FACE & BODY TOOLS</h3>
+                                <a href="" style="padding:2px">Massager</a>
+                                <a href="" style="padding:2px">Face Appliance</a>
+                                <a href="" style="padding:2px">face appliance</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropbtns">
+                    <a href="#">
+                        <h3>Personal Care</h3>
+                    </a>
+                    <div class="dropdown-contents">
+                        <div class="dropdown-grid">
+
+                            <div>
+                                <h3 style="padding-top: 20px;">BATH & BODY</h3>
+                                <a href="" style="padding:2px">Body wash & Shower Wash</a>
+                                <a href="" style="padding:2px">Body Srcub ,Polish & Exfoliant</a>
+                                <a href="" style="padding:2px">Soaps</a>
+                                <a href="" style="padding:2px">Bath Salts & Bubble Bath</a>
+                                <a href="" style="padding:2px">Body Lotions & Body Butters</a>
+                            </div>
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">FEMININE HYGINE</h3>
+                                <a href="" style="padding:2px">Sanitary Napkins </a>
+                                <a href="" style="padding:2px">Tampons</a>
+                                <a href="" style="padding:2px">Pantyliners</a>
+                                <a href="" style="padding:2px">Menstruls Cups</a>
+                                <a href="" style="padding:2px">Instimate Care</a>
+                                <a href="" style="padding:2px">Shaving And Hair Removel</a>
+                            </div>
+                            <div>
+                                <h3 style="padding-top: 20px;">MEN'S GROOMING</h3>
+                                <a href="" style="padding:2px">Sahving Cream</a>
+                                <a href="" style="padding:2px">Razors & Cartridges</a>
+                                <a href="" style="padding:2px">Aftershaves</a>
+                                <a href="" style="padding:2px">Beard Care</a>
+                                <a href="" style="padding:2px">Deodorants & Roll-Ons</a>
+                            </div>
+                            <div>
+                                <h3 style="padding-top: 20px;">DENTAL CARE</h3>
+                                <a href="" style="padding:2px">Toothpaste & Tooth-powder</a>
+                                <a href="" style="padding:2px">Toothbrush</a>
+                                <a href="" style="padding:2px">Floss and Tongue Cleaner</a>
+                            </div>
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">HAND & FOOT CARE</h3>
+                                <a href="" style="padding:2px">Hand Wash & Soaps</a>
+                                <a href="" style="padding:2px">Hand Sanitizer</a>
+                                <a href="" style="padding:2px">Hand Cream</a>
+                                <a href="" style="padding:2px">Dull & Dry</a>
+                                <a href="" style="padding:2px">GRey Hair</a>
+                                <a href="" style="padding:2px">Foot Creams and Srubs</a>
+                            </div>
+                            <div>
+                                <h3 style="padding-top: 20px;">HAIR CARE</h3>
+                                <a href="" style="padding:2px">SHAMPOO</a>
+                                <a href="" style="padding:2px">Conditioner</a>
+                                <a href="" style="padding:2px">Hair Oil</a>
+                                <a href="" style="padding:2px">Hair Serum</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropbtns">
+                    <a href="#">
+                        <h3>Men</h3>
+                    </a>
+                    <div class="dropdown-contents">
+                        <div class="dropdown-grid">
+
+                            <div>
+                                <h3 style="padding-top: 20px;">SAVING CARE</h3>
+                                <a href="" style="padding:2px">Saving Cream</a>
+                                <a href="" style="padding:2px">Razors & Crtridges</a>
+                                <a href="" style="padding:2px">Aftershaves</a>
+                            </div>
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">SKINCARE</h3>
+                                <a href="" style="padding:2px">Face Wash </a>
+                                <a href="" style="padding:2px">Srubs & Exfoliators</a>
+                                <a href="" style="padding:2px">Moistuarizes</a>
+                                <a href="" style="padding:2px">Face Cream</a>
+                                <a href="" style="padding:2px">face Masks</a>
+                                <a href="" style="padding:2px">Shaving And Hair Removel</a>
+                            </div>
+                            <div>
+                                <h3 style="padding-top: 20px;"> BATH & BODY</h3>
+                                <a href="" style="padding:2px">Shower Gel</a>
+                                <a href="" style="padding:2px">Soaps</a>
+                                <a href="" style="padding:2px">Talc</a>
+                            </div>
+                            <div>
+                                <h3 style="padding-top: 20px;">HAIR CARE</h3>
+                                <a href="" style="padding:2px">SHAMPOO</a>
+                                <a href="" style="padding:2px">Conditioner</a>
+                                <a href="" style="padding:2px">Hair Oil</a>
+                                <a href="" style="padding:2px">Hair Serum</a>
+                            </div>
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">BEARD CARE</h3>
+                                <a href="" style="padding:2px">Beard Oil & Wax</a>
+                                <a href="" style="padding:2px">Beard Wash</a>
+                            </div>
+                            <div>
+                                <h3 style="padding-top: 20px;">FRAGRANCE</h3>
+                                <a href="" style="padding:2px">Perfumes</a>
+                                <a href="" style="padding:2px">Colognes</a>
+                                <a href="" style="padding:2px">Aftershave</a>
+                                <a href="" style="padding:2px">Gift & Value Sets</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropbtns">
+                    <a href="#">
+                        <h3>Fragrance</h3>
+                    </a>
+                    <div class="dropdown-contents">
+                        <div class="dropdown-grid">
+                            <div>
+                                <h3 style="padding-top: 20px;">FRAGRANCE FOR WOMEN</h3>
+                                <a href="" style="padding:2px">Perfumes</a>
+                                <a href="" style="padding:2px">RaDeodorants & Roll-Ons</a>
+                                <a href="" style="padding:2px">Body Mits & Sprays</a>
+                            </div>
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">FRAGRANCE FOR MEN</h3>
+                                <a href="" style="padding:2px">Perfumes</a>
+                                <a href="" style="padding:2px">RaDeodorants & Roll-Ons</a>
+                                <a href="" style="padding:2px">Colognes</a>
+                                <a href="" style="padding:2px">Aftershaves</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropbtns">
+                    <a href="#">
+                        <h3>Health & Wellness</h3>
+                    </a>
+                    <div class="dropdown-contents">
+                        <div class="dropdown-grid">
+
+                            <div>
+                                <h3 style="padding-top: 20px;">HEALTH SUPPLEMENTS</h3>
+                                <a href="" style="padding:2px">Multivitamins</a>
+                                <a href="" style="padding:2px">Minerals</a>
+                                <a href="" style="padding:2px">Omega Fatty Acids</a>
+                                <a href="" style="padding:2px">Weight Management</a>
+                            </div>
+
+
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">SEXUAL HEALTH PRODUCTS</h3>
+                                <a href="" style="padding:2px">Hearbal and Detox Teans </a>
+                                <a href="" style="padding:2px">Healthy Supplemets</a>
+                                <a href="" style="padding:2px">SuperFoods</a>
+                            </div>
+
+
+                            <div>
+                                <h3 style="padding-top: 20px;">PAIN RELIEF & FIRST AID</h3>
+                                <a href="" style="padding:2px">Pain Relief & First Aid</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropbtns">
+                    <a href="#">
+                        <h3>Mom & Baby</h3>
+                    </a>
+                    <div class="dropdown-contents">
+                        <div class="dropdown-grid">
+                            <div>
+                                <h3 style="padding-top: 20px;">BABY SKIN CARE</h3>
+                                <a href="" style="padding:2px">Baby Loction Cream</a>
+                                <a href="" style="padding:2px">Baby Powder</a>
+                                <a href="" style="padding:2px">Baby Wash & Soaps</a>
+                                <a href="" style="padding:2px">Baby Rash Creams</a>
+                                <a href="" style="padding:2px">Baby Wipes</a>
+                            </div>
+                            <div style="background-color: rgb(234, 232, 232);">
+                                <h3 style="padding-top: 20px;">HAIR</h3>
+                                <a href="" style="padding:2px">Shampoo & Conditioner </a>
+                                <a href="" style="padding:2px">Hair Oil</a>
+                            </div>
+                            <div>
+                                <h3 style="padding-top: 20px;">PMATERNITY</h3>
+                                <a href="" style="padding:2px">Anti-Sterches Cream</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <p>BRANDS</p>
+        <p>OFFERS</p>
+        <p>NEW</p>
+        <p>SPLURGE</p>
+        <p>MAGAZINE</p>
+        <a href="./elite.html">
+            <h2 style="font-size: larger;">ELITE OFFERS</h2>
+        </a>
+    </nav>
+
+
+
+
+
+
+
+<div id="footer1">
+    <div>
+        <img src="./img/1499247950_secure-payment.webp" alt="error">
+        <h2>100% Secure Payment</h2>
+        <p>All major credit & debit cards accepted</p>
+    </div>
+    <div class="vl"></div>
+    <div>
+        <img src="./img/Screenshot 2023-03-29 010549.png" alt="error">
+        <h2>Beauty Assistant</h2>
+        <p>Tell me what you are looking for and i will work <br>my magic to help you find your perfect match.</p>
+    </div>
+    <div class="vl"></div>
+    <div>
+        <img style="width:100px; height:100px" src="./img/istockphoto-1247852914-612x612.jpg" alt="error">
+        <h2>Help Center</h2>
+        <p>Got a question? Look no further.Browse FAQs <br> submit your query.</p>
+    </div>
+</div>
+
+<div class="footer2">
+    <div>
+        <h2 style="margin-top: 20px;">Spotlight</h2>
+        <div style="width:380;height:300; box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;margin-top: 20px;">
+            <video width="380" height="300" controls="controls" type="video/mp4" autoplay="false" preload="none"
+                src="How to find perfect foundation for your skin tone Ft. Purplle.mp4">
+        </video>
+        </div>
+    </div>
+    <div style="width:35%">
+        <h2 style="margin-top: 20px;">Shop 0n the go</h2>
+        <div style="margin-top: 20px;" class="f2d">
+            <div>
+                <p style="padding-top: 30px;">The Purplle BFF APP is now fully<br> loaded! Get downloading now<br>
+                    on both iOS & Android</p>
+                <div style="padding-top: 30px;">
+                    <a href="https://play.google.com/store/apps/details?id=com.manash.purplle"><img
+                            src="https://media6.ppl-media.com/mediafiles/ecomm/home/1499247983_google-play.png"
+                            alt="error"></a>
+                </div>
+
+                <div style="padding-top: 10px;">
+                    <a href="https://apps.apple.com/in/app/purplle-beauty-friend-forever/id1078972948"><img
+                            src="https://media6.ppl-media.com/mediafiles/ecomm/home/1499247967_app-store.png"
+                            alt="error"></a>
+                </div>
+            </div>
+            <div>
+                <img src="./img/Screenshot 2023-03-29 014507.png" alt="error">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer3">
+    <div class="f3d">
+        <div style="width:12% ">
+            <a href="">
+                <h3>Makeup:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href=""> Primer</a> /
+            <a href=""> Lipstick </a> /
+            <a href=""> Foundation Serum</a> /
+            <a href="">Eyeshadow<a> /
+                    <a href=""> Baby Shampoo </a> /
+                    <a href=""> Kajal</a> /
+                    <a href="">Concealer </a> /
+                    <a href="">Shaving Cream</a> /
+                    <a href="">Compact </a> /
+                    <a href=""> Mascara </a> /
+                    <a href=""> Highlighters & Illuminators</a> /
+                    <a href=""> Makeup Remover </a> /
+                    <a href=""> BB & CC Cream</a> /
+                    <a href=""> Loose Powder</a> /
+                    <a href="">Blush</a> .
+        </div>
+    </div>
+    <div class="f3d">
+        <div style="width:12%">
+            <a href="">
+                <h3>Hair:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href=""> Shampoo</a> /
+            <a href=""> Conditioner </a> /
+            <a href=""> Hair Serum</a> /
+            <a href="">Hair Oila<a> /
+                    <a href=""> Baby Shampoo </a> /
+                    <a href=""> Dry Shampoo</a> /
+                    <a href="">Hair Spa Kits </a> /
+                    <a href="">Shaving Cream</a> /
+                    <a href="">Volumizing</a> /
+                    <a href=""> Hair Spray & Leave-In Cream </a> /
+                    <a href=""> Aroma Magi</a> /
+                    <a href="">Hair Color </a> /
+                    <a href=""> Hair Extensions</a> /
+                    <a href=""> Hair Styling Too</a> /
+                    <a href="">Hair Accessories.</a> .
+        </div>
+    </div>
+    <div class="f3d">
+        <div style="width:12%">
+            <a href="">
+                <h3>Fragrance:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href=""> Perfumes </a> /
+            <a href=""> Deodrants & Roll-Ons </a> /
+            <a href="">Aftershaves Perfumes</a> /
+            <a href=""> Colognes <a> /
+                    <a href="">Darling Isabella </a> /
+                    <a href=""> Gift & Value Sets For Men </a> /
+                    <a href="">Good Vibes </a>.
+        </div>
+    </div>
+    <div class="f3d">
+        <div style="width:12%">
+            <a href="">
+                <h3> Collections:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href=""> Castor Oil</a> /
+            <a href=""> Pastel Nail Polish</a> /
+            <a href="">Lakme 9 To 5</a> /
+            <a href=""> Black Kajal<a> /
+                    <a href="">Sunscreen </a> .
+        </div>
+    </div>
+    <div class="f3d">
+        <div style="width:12%">
+            <a href="">
+                <h3>Brands:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href="">Biotique</a> /
+            <a href=""> Wow </a> /
+            <a href="">Dermdoc</a> /
+            <a href="">Himalaya<a> /
+                    <a href="">Darling Isabella </a> /
+                    <a href=""> Maybelline</a> /
+                    <a href="">Good Vibes </a> /
+                    <a href="">Shaving Cream</a> /
+                    <a href=""> NY Bae</a> /
+                    <a href=""> Stay Quirky </a> /
+                    <a href=""> Aroma Magi</a> /
+                    <a href="">Lotus</a> /
+                    <a href="">Sugar</a> /
+                    <a href="">Nivea</a> /
+                    <a href="">Lakme</a> .
+        </div>
+    </div>
+
+    <div class="f3d">
+        <div style="width:12%">
+            <a href="">
+                <h3>Men:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href="">Perfumes</a> /
+            <a href=""> Deodrants & Roll-Ons</a> /
+            <a href="">Face Wash</a> /
+            <a href="">Shower Gels <a> /
+                    <a href="">Soap </a> /
+                    <a href=""> Body Scrub</a> /
+                    <a href="">Talc </a> /
+                    <a href="">Shaving Cream</a> /
+                    <a href="">Beard Oil</a> /
+                    <a href=""> Razors </a> /
+                    <a href=""> Aftershave</a> /
+                    <a href="">Beard Wash</a> /
+                    <a href="">Grooming Kits</a> /
+                    <a href="">Shaving Accessories</a> /
+                    <a href="">Hair Styling</a> /
+                    <a href="">Trimmers</a>.
+        </div>
+
+    </div>
+    <div class="f3d">
+        <div style="width:12%">
+            <a href="">
+                <h3>Accessories:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href="">Necklaces & Pendants</a> /
+            <a href=""> Earrings</a> /
+            <a href="">Rings</a> /
+            <a href="">Bangles & Braclets <a> /
+                    <a href=""> Clips Bands & More </a> .
+        </div>
+
+    </div>
+    <div class="f3d">
+        <div style="width:12%">
+            <a href="">
+                <h3>Electronics:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href=""> Hair Straightener</a> /
+            <a href="">Hair Curler</a> /
+            <a href=""> Hair Dryer</a> /
+            <a href="">Electric Shaver <a> /
+                    <a href="">Trimmers & Clippers </a> /
+                    <a href=""> Epilators </a> /
+                    <a href="">Massager </a> .
+        </div>
+    </div>
+
+    <div class="f3d">
+        <div style="width:12%">
+            <a href="">
+                <h3>Wellness:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href=""> Health & Wellness Supplements</a> /
+            <a href=""> Vitamins & Supplements</a> /
+            <a href=""> Weight Management Products </a> /
+            <a href="">Family Nutrition <a> /
+                    <a href=""> Sports Supplements </a> /
+                    <a href=""> Green Tea</a> /
+                    <a href="">Herbal Tea </a> /
+                    <a href="">Healthy Juices & Drinks</a> .
+        </div>
+    </div>
+    <div class="f3d">
+        <div style="width:12%">
+            <a href="">
+                <h3>Blogs:</h3>
+            </a>
+        </div>
+        <div style="width:80%">
+            <a href="">Home Remedies For Dandruff </a> /
+            <a href=""> How To Apply Eyeliner </a> /
+            <a href="">Tips For Lips Care</a> /
+            <a href="">Home Remedies For Hair Fall <a> /
+                    <a href="">Best Sunscreen Lotions </a> /
+                    <a href=""> Home Remedies For Acne And Pimples</a> /
+                    <a href="">Home Remedies For Whiteheads </a> /
+                    <a href="">Home Remedies For Suntan</a> /
+                    <a href="">Serum For Oily, Dry And Sensitive Skin</a> /
+                    <a href=""> Choose The Right Serum For Your Skin </a> /
+                    <a href=""> Body Lotion For Dry Skin</a> /
+                    <a href=""> / / Home Remedies For Hyperpigmentation </a> .
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="list">
+        <h3>PURPELLE</h3>
+        <a href="">
+            <p>About us</p>
+        </a>
+        <a href="">
+            <p>Our Team</p>
+        </a>
+        <a href="">
+            <p>Careers</p>
+        </a>
+        <a href="">
+            <p>Press</p>
+        </a>
+        <a href="">
+            <p>Sitemap</p>
+        </a>
+
+    </div>
+    <div class="list">
+        <h3>PURPELLE BUSINESS</h3>
+        <a href="">
+            <p>Sell on Purplle</p>
+        </a>
+    </div>
+    <div class="list">
+        <h3>POLICY INFO</h3>
+        <a href="">
+            <p>Privacy Policy</p>
+        </a>
+        <a href="">
+            <p>Terms Of Use</p>
+        </a>
+        <a href="">
+            <p>Returm & Cancellation Policy</p>
+        </a>
+    </div>
+    <div class="list">
+        <h3>NEED HELP?</h3>
+        <a href="">
+            <p>FAQ's</p>
+        </a>
+        <a href="">
+            <p>Contact Us</p>
+        </a>
+    </div>
+</div>
+<hr >
+<div  id="PbelowF">
+    <div  class="belowF">
+        <h3 style="padding-top: 10px;">PAYMENT</h3>
+        <img src="./img/Screenshot 2023-03-29 112014.png" alt="Error">
+    </div>
+    <div class="belowF">
+        <h3 style="padding-top: 10px;">CONNECT</h3>
+        <a href="https://www.facebook.com/letspurplle"><img src="./img/Screenshot 2023-03-29 112741.png"
+                alt="error"></a>
+        <a href="https://twitter.com/letspurplle"><img src="./img/Screenshot 2023-03-29 112808.png" alt="error"></a>
+        <a href="https://plus.google.com/+Purplle"><img src="./img/Screenshot 2023-03-29 112827.png"
+                alt="error"></a>
+        <a href="https://in.pinterest.com/letspurplle/"><img src="./img/Screenshot 2023-03-29 112852.png"
+                alt="error"></a>
+        <a href=""><img src="./img/Screenshot 2023-03-29 112914.png" alt="error"></a>
+        <a href="https://www.youtube.com/channel/UCI_6AcJI1sKexCLb2NAYTOQ"><img
+                src="./img/Screenshot 2023-03-29 112929.png" alt="error"></a>
+        <a href="https://www.instagram.com/letspurplle/"><img src="./img/Screenshot 2023-03-29 112947.png"
+                alt="error"></a>
+        <a href="https://www.linkedin.com/company/purplle-com/"><img src="./img/Screenshot 2023-03-29 113004.png"
+                alt="error"></a>
+    </div>
+</div>
+
+</body>
+</html>

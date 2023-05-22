@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let product ={
+      "productName": "afaf",
+      "price": 255,
+      "offer": 100,
+      "elite": true,
+      "image": "afafa://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-purplle_exclusive_base_1__1__BytKq6D4b.png,ofo-top_right,dpr-2/static/img/product/275214/good-vibes-hydrating-face-cream-papaya-50-g-1_6_display_1620451298_33edd5ed.jpg",
+      "category": "face fa",
+      "review": "afa5",
+      "createdAt": 1680201769118,
+      "storeId": 5
+    }
+    async function patchproduct(product){
+
+        let res = await fetch("http://127.0.0.1:9090/products",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({ 
+                product
+            })
+        })
+        let data = await res.json()
+        console.log(data);
+    }
+    patchproduct(product)
+   
+
+</script>
+</html>

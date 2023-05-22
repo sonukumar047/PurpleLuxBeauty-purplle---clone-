@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+
+        /* adding CSS to navbar */
+        nav a:hover {
+            color: gray;
+            font-weight: 600px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            padding: 11px;
+            border: 1px solid rgb(239, 233, 233);
+            border-left: none;
+            border-right: none;
+            cursor: pointer;
+            margin-top: 11px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            font-size: 18px;
+        }
+
+        .navbar img {
+            width: 8%;
+            margin-left: 30%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            margin-top: 11px;
+        }
+
+        /* adding CSS to create store button */
+        #createstore{
+        background-color: dodgerblue;
+        color: white;
+        padding: 11px;
+        border-radius: 2px;
+        border: navajowhite;
+        font-size: larger;
+    }
+
+        /* adding css to add product form */
+        #add_product_cont {
+            width: 600px;
+            margin-top: 100px;
+            padding: 50px;
+            margin-left: 30%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        /* adding css to submit button */
+        #submit {
+            background-color: dodgerblue;
+            padding: 11px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+    </style>
+    <style>
+        input{
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar starts fron here -->
+    <div class="navbar">
+        <img id="dash" src="./img/purplle_v2.png" alt="">
+        <button id="createstore">Create Store</button>
+    </div>
+    <nav>
+        <a href="./admin-products.html">Products</a>
+        <a href="./admin-orders.html">orders</a>
+    </nav>
+    <!-- Navbar end fron here -->
+
+    <div id="add_product_cont">
+        <form action="">
+            <label for="">NAME</label>
+            <br>
+            <input type="text" name="name" id="name" placeholder="name">
+            <br>
+            <label for="">PRICE</label>
+            <br>
+            <input type="number" name="price" id="price" placeholder="price">
+            <br>
+            <label for="">OFFER</label>
+            <br>
+            <input type="text" name="offer" id="offer" placeholder="offer">
+            <br>
+            <label for="">IMAGE</label>
+            <br>
+            <input type="text" name="image" id="image" placeholder="image">
+            <br>
+        <label for="">CATEGORY</label><br>
+        <input type="text" name="category" id="category">
+        <br>
+            <label for="">ELITE</label>
+            <input type="checkbox" name="elite" id="elite">
+            <br>
+            <label for="">REVIEW</label>
+            <br>
+            <input type="number" name="review" id="review" placeholder="review">
+            <br>
+            <input type="submit" name="submit" id="submit">
+        </form>
+    </div>
+
+</body>
+<script>
+    let storeId =JSON.parse(localStorage.getItem("storeId"))
+    console.log(storeId);
+    
+    let form = document.querySelector("form")
+    form.addEventListener("submit",addProduct)
+    async function addProduct(e){
+        if(storeId !=null){
+        e.preventDefault()
+    let productName = document.getElementById("name").value
+    let price = document.getElementById("price").value
+    let offer = document.getElementById("offer").value
+    let image = document.getElementById("image").value
+    let category=document.getElementById("category").value
+    let elitepara = document.getElementById("elite")
+    let review = document.getElementById("review").value
+    
+    let elite =elitepara.checked;
+        
+        const product ={
+            productName,
+            price,
+            offer,
+            elite,
+            image,
+            category,
+            review,
+            storeId,
+        }
+        
+        let res = await fetch("http://127.0.0.1:9090/add",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(product)
+        })
+        let data = await res.json()
+        console.log(data);
+    }
+
+
+    // redirect to addstore.html
+    let createbtn = document.getElementById("createstore")
+    createbtn.addEventListener("click", () => {
+        window.location = "./addstore.html"
+    })
+
+    // redirect to adnin-dashboard.html
+    let dash = document.getElementById("dash")
+    dash.addEventListener("click", () => {
+        window.location = "./admin-dashboard.html"
+    })
+    }
+</script>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        .signup-box {
+            width: 350px;
+            height: 500px;
+            margin: auto;
+            border-radius: 5px;
+        }
+
+        form {
+            width: 300px;
+            margin-left: 20px;
+        }
+
+        label {
+            display: flex;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 327px;
+            height: 40px;
+            margin-top: 20px;
+            background-color: orangered;
+            color: white;
+            font-size: 18px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 20px;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-box">
+        <h2>Sign Up</h2>
+        <form id="form">
+            <label>First Name</label>
+            <input type="text" placeholder="Enter your first name" id="firstname">
+            <label>Last Name</label>
+            <input type="text" placeholder="Enter your last name" id="lastname">
+            <label>Email</label>
+            <input type="text" placeholder="Enter your email" id="email">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your Password" id="password">
+            <label>Confirmed Password</label>
+            <input type="password" placeholder="Enter Confirmed Password" id="confirmedPassword">
+            <input type="submit" value="Sign Up">
+        </form>
+        <p>By clicking sign up, I accept the Purplle<br>
+            <a href="#">Terms of Services</a> and acknowledged the<a href="#">Policy Privacy</a>
+        </p>
+    </div>
+    <p>Already have an account?<a href="login.html">Login here</a></p>
+</body>
+
+</html>
+<script>
+    let from = document.querySelector("form")
+    from.addEventListener("submit",Register)
+    apiUrl="http://127.0.0.1:9090"
+ async function Register(e) {
+    e.preventDefault()
+            
+            const firstname = document.getElementById("firstname").value;
+            const lastname = document.getElementById("lastname").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            
+
+            const user = {
+                firstname,
+                lastname,
+                email,
+                password
+            };
+            console.log(user);
+            const response = await fetch("http://127.0.0.1:9090/user/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            });
+            
+            let data =await response.json()
+            window.location="./login.html"
+            console.log(data);
+ }
+</script>

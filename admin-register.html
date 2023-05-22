@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="">USERNAME</label>
+        <br>
+        <input type="text" name="userName" id="userName" placeholder="userName">
+        <br>
+        <label for="">FIRST NAME</label>
+        <br>
+        <input type="text" name="fisrtName" id="fisrtName" placeholder="fisrtName">
+        <br>
+        <label for="">LAST NAME</label>
+        <br>
+        <input type="text" name="lastName" id="lastName" placeholder="lastName">
+        <br>
+        <label for="">EMAIL</label>
+        <br>
+        <input type="email" name="email" id="email" placeholder="email">
+        <br>
+        <label for="">PASSWORD</label>
+        <br>
+        <input type="password" name="password" id="password" placeholder="password">
+        <br>
+       <input type="submit">
+        
+        
+    </form>
+</body>
+</html>
+<script>
+    let from = document.querySelector("form")
+    from.addEventListener("submit",Register)
+    apiUrl="http://127.0.0.1:9090"
+ async function Register(e) {
+    e.preventDefault()
+            const username = document.getElementById("userName").value;
+            const firstname = document.getElementById("fisrtName").value;
+            const lastname = document.getElementById("lastName").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const user = {
+                username,
+                firstname,
+                lastname,
+                email,
+                password,
+            };
+
+            const res = await fetch("http://127.0.0.1:9090/adminuser/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            });
+            
+            let data =await res.json()
+            window.location="./adminlogin.html"
+            console.log(data);
+ }
+</script>

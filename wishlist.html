@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div class="div4">wish</div> 
+</body>
+</html>
+<script>
+
+let newData=[]
+let data = JSON.parse(localStorage.getItem("wishlist")) || [];
+let userId = JSON.parse(localStorage.getItem("userId"))
+console.log(userId);
+async function getdata(){
+    let res = await fetch(`http://127.0.0.1:9090/wishlist?userId=${userId}`)
+    let newData = await res.json()
+   
+    console.log(newData);
+    append(newData[0].products); 
+}
+
+getdata()
+
+const append = (data) => {
+    const container = document.querySelector(".div4");
+    container.innerHTML = null;
+
+    data.forEach((el) => {
+     
+        const div = document.createElement("div");
+
+        const img = document.createElement("img");
+        const div1=document.createElement("div");
+        const h3 = document.createElement("h3");
+        const priceP = document.createElement("p");
+     
+ 
+        const remove = document.createElement("button");
+        const movetowishlist=document.createElement("button")
+   
+
+
+        img.src = el.image;
+        
+        h3.innerText = el.productName;
+        priceP.innerText = `Price-${el.price}`;
+   
+    
+     
+    
+
+
+        remove.addEventListener("click", () => {
+            data = data.filter((ele) => {
+                return ele.id !== el.id;
+            })
+            localStorage.setItem("wishlist", JSON.stringify(data))
+            append(data)
+            totalPrice(data);
+        })
+
+    
+
+        movetowishlist.addEventListener("click", () => {
+      
+          });
+
+       div1.append(h3,remove)
+
+   
+        div.append(img,div1, priceP)
+        container.append(div);
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
